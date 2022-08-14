@@ -180,22 +180,9 @@ void handle_query_contract_ui(void *parameters) {
 
     memset(msg->title, 0, msg->titleLength);
     memset(msg->msg, 0, msg->msgLength);
-    strlcpy(msg->title, "Amountsss", msg->titleLength);
-    amountToString(context->amount,
-                    INT256_LENGTH,
-                    18,
-                    "TKN",
-                    msg->msg,
-                    msg->msgLength);
     switch (msg->screenIndex) {
         case 0:{
-            strlcpy(msg->title, "Amountsss", msg->titleLength);
-            amountToString(context->amount,
-                           INT256_LENGTH,
-                           18,
-                           "TKN",
-                           msg->msg,
-                           msg->msgLength);
+            set_first_param_ui(msg, context);
             break;
         } break;
         case 1:
