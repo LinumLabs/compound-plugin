@@ -159,7 +159,7 @@ void handle_provide_parameter(void *parameters) {
         case COMPOUND_MINT:
         case CETH_MINT:
             memset(context->amount, 0, sizeof(context->amount));
-            memcpy(context->amount_sent,
+            memcpy(context->amount,
                 &msg->pluginSharedRO->txContent->value.value,
                 msg->pluginSharedRO->txContent->value.length);
             context->next_param = UNEXPECTED_PARAMETER;
