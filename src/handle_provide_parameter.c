@@ -154,14 +154,13 @@ void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
 
-    msg->result = ETH_PLUGIN_RESULT_OK;
     switch (context->selectorIndex) {
         case COMPOUND_MINT:
         case CETH_MINT:
             memset(context->amount, 0, sizeof(context->amount));
             memcpy(context->amount,
-                &msg->pluginSharedRO->txContent->value.value,
-                msg->pluginSharedRO->txContent->value.length);
+                msg->parameter,
+                sizeof(context->amount));
             context->next_param = UNEXPECTED_PARAMETER;
             break;
         default:
@@ -169,4 +168,6 @@ void handle_provide_parameter(void *parameters) {
             msg->result = ETH_PLUGIN_RESULT_ERROR;
             return;
     }
+
+    msg->result = ETH_PLUGIN_RESULT_OK;
 }

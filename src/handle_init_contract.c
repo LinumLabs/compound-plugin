@@ -38,6 +38,7 @@ void handle_init_contract(void *parameters) {
         msg->result = ETH_PLUGIN_RESULT_UNAVAILABLE;
         return;
     }
+    context->next_param = MINT_AMOUNT;
 
     switch (context->selectorIndex) {
         case COMPOUND_MINT:

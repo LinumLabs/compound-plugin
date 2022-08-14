@@ -44,6 +44,7 @@ void handle_provide_token(void *parameters) {
                 strlcpy(context->ticker,
                     (char *) msg->item1->token.ticker,
                     sizeof(context->ticker));
+                strlcpy(context->decimals, msg->item1->token.decimals, sizeof(context->decimals));
             case COMPOUND_REDEEM:
                 context->decimals = msg->item1->token.decimals;
                 msg->result = ETH_PLUGIN_RESULT_OK;
