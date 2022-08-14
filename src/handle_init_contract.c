@@ -28,7 +28,6 @@ void handle_init_contract(void *parameters) {
     uint8_t i;
     for (i = 0; i < NUM_SELECTORS; i++) {
             context->selectorIndex = i;
-        }
     }
 
     // If `i == NUM_SELECTORS` it means we haven't found the selector. Return an error.
