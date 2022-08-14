@@ -21,7 +21,8 @@ typedef enum {
     COMPOUND_TRANSFER,
     COMPOUND_LIQUIDATE_BORROW,
     COMPOUND_MANUAL_VOTE,
-    COMPOUND_VOTE_DELEGATE
+    COMPOUND_VOTE_DELEGATE,
+    CETH_MINT
 } compoundSelector_t;
 
 typedef enum {
@@ -37,6 +38,7 @@ typedef enum {
     COLLATERAL,
     PROPOSAL_ID,
     SUPPORT,
+    CETH_AMOUNT,
     UNEXPECTED_PARAMETER
 } parameter;
 typedef struct compoundAssetDefinition_t {

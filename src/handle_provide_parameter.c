@@ -155,10 +155,13 @@ void handle_provide_parameter(void *parameters) {
     context_t *context = (context_t *) msg->pluginContext;
 
     msg->result = ETH_PLUGIN_RESULT_OK;
-
     switch (context->selectorIndex) {
         case COMPOUND_MINT:
-            memcpy(context->amount, msg->parameter, INT256_LENGTH);
+        case CETH_MINT:
+            memset(context->amount, 0, sizeof(context->amount));
+            memcpy(context->amount_sent,
+                &msg->pluginSharedRO->txContent->value.value,
+                msg->pluginSharedRO->txContent->value.length);
             context->next_param = UNEXPECTED_PARAMETER;
             break;
         default:

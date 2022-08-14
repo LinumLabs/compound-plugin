@@ -181,17 +181,16 @@ void handle_query_contract_ui(void *parameters) {
     memset(msg->title, 0, msg->titleLength);
     memset(msg->msg, 0, msg->msgLength);
     msg->result = ETH_PLUGIN_RESULT_OK;
-    PRINTF(msg->screenIndex);
 
     switch (msg->screenIndex) {
         case 0:{
             strlcpy(msg->title, "Amountsss", msg->titleLength);
             amountToString(context->amount,
-                           sizeof(context->amount),
-                           context->decimals,
-                           context->ticker,
+                           INT256_LENGTH,
+                           18,
+                           "TKN",
                            msg->msg,
-                           100);
+                           msg->msgLength);
             break;
         } break;
         case 1:

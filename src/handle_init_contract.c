@@ -43,6 +43,9 @@ void handle_init_contract(void *parameters) {
         case COMPOUND_MINT:
             context->next_param = MINT_AMOUNT;
             break;
+        case CETH_MINT:
+            context->next_param = CETH_AMOUNT;
+            break;
         default:
             PRINTF("Missing selectorIndex");
             msg->result = ETH_PLUGIN_RESULT_ERROR;

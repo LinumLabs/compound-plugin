@@ -31,15 +31,19 @@ void handle_provide_token(void *parameters) {
     ethPluginProvideInfo_t *msg = (ethPluginProvideInfo_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
 
-    if (msg->item1 != NULL) {
+    if (msg->item1) {
         // Store its ticker.
         switch (context->selectorIndex) {
             case COMPOUND_MINT:
             case COMPOUND_REDEEM_UNDERLYING:
+            case CETH_MINT:
                 msg->result = 
                     get_underlying_asset_decimals(context->ticker, &context->decimals)
                         ? ETH_PLUGIN_RESULT_OK
                         : ETH_PLUGIN_RESULT_FALLBACK;
+                strlcpy(context->ticker,
+                    (char *) msg->item1->token.ticker,
+                    sizeof(context->ticker));
             case COMPOUND_REDEEM:
                 context->decimals = msg->item1->token.decimals;
                 msg->result = ETH_PLUGIN_RESULT_OK;
