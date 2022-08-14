@@ -16,7 +16,8 @@ void handle_finalize(void *parameters) {
 
     // EDIT THIS: set `tokenLookup1` (and maybe `tokenLookup2`) to point to
     // token addresses you will info for (such as decimals, ticker...).
-    msg->tokenLookup1 = msg->pluginSharedRO->txContent->destination;
+    // msg->tokenLookup1 = msg->pluginSharedRO->txContent->destination;
 
+    msg->uiType = ETH_UI_TYPE_GENERIC;
     msg->result = ETH_PLUGIN_RESULT_OK;
 }

@@ -195,18 +195,13 @@ void handle_query_contract_ui(void *parameters) {
     switch (msg->screenIndex) {
         case 0:{
             strlcpy(msg->title, "Amountsss", msg->titleLength);
-            char *ticker_ptr = context->ticker;
-            /* skip "c" in front of cToken unless we use "redeem", as
-            redeem is the only operation dealing with a cToken amount */
-
-            const uint8_t *eth_amount = msg->pluginSharedRO->txContent->value.value;
-            uint8_t eth_amount_size = msg->pluginSharedRO->txContent->value.length;
-            uint8_t decimals = context->decimals;
-            const char *ticker = context->ticker;
-            // Converts the uint256 number located in `eth_amount` to its string representation and
-            // copies this to `msg->msg`.
-            amountToString(eth_amount, eth_amount_size, decimals, ticker, msg->msg, msg->msgLength);
-            msg->result = ETH_PLUGIN_RESULT_OK;
+            amountToString(context->amount,
+                           sizeof(context->amount),
+                           context->decimals,
+                           context->ticker,
+                           msg->msg,
+                           100);
+            break;
         } break;
         case 1:
             strlcpy(msg->title, "Contract", msg->titleLength);
@@ -214,7 +209,6 @@ void handle_query_contract_ui(void *parameters) {
             strlcat(msg->msg,
                     context->ticker + 1,
                     msg->msgLength);  // remove the 'c' char at beginning of compound ticker
-            msg->result = ETH_PLUGIN_RESULT_OK;
             break;
         default:
             PRINTF("Received an invalid screenIndex\n");

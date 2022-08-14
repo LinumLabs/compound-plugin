@@ -39,7 +39,6 @@ static const uint32_t COMPOUND_LIQUIDATE_BORROW_SELECTOR = 0xf5e3c462;
 static const uint32_t COMPOUND_VOTE_DELEGATE_SELECTOR = 0x5c19a95c;
 // function `deletegateBySig`
 static const uint32_t COMPOUND_MANUAL_VOTE_SELECTOR = 0x15373e3d;
-static const uint32_t CETH_MINT_SELECTOR = 0x1249c58b;
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `boilerplate_plugin.h`
 // EDIT THIS: Use the names of the array declared above.
@@ -52,8 +51,7 @@ const uint32_t COMPOUND_SELECTORS[NUM_SELECTORS] = {COMPOUND_MINT_SELECTOR,
                                                           COMPOUND_TRANSFER_SELECTOR,
                                                           COMPOUND_LIQUIDATE_BORROW_SELECTOR,
                                                           COMPOUND_MANUAL_VOTE_SELECTOR,
-                                                          COMPOUND_VOTE_DELEGATE_SELECTOR,
-                                                          CETH_MINT_SELECTOR};
+                                                          COMPOUND_VOTE_DELEGATE_SELECTOR};
 
 // Function to dispatch calls from the ethereum app.
 void dispatch_plugin_calls(int message, void *parameters) {

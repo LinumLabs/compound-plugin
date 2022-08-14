@@ -36,44 +36,15 @@ void handle_init_contract(void *parameters) {
     // If `i == NUM_SELECTORS` it means we haven't found the selector. Return an error.
     if (i == NUM_SELECTORS) {
         msg->result = ETH_PLUGIN_RESULT_UNAVAILABLE;
+        return;
     }
 
-    PRINTF("compound plugin inititialized\n");
     switch (context->selectorIndex) {
         case COMPOUND_MINT:
             context->next_param = MINT_AMOUNT;
             break;
-        case COMPOUND_REDEEM:
-            context->next_param = REDEEM_TOKENS;
-            break;
-        case COMPOUND_REDEEM_UNDERLYING:
-            context->next_param = REDEEM_AMOUNT;
-            break;
-        case COMPOUND_BORROW:
-            context->next_param = BORROW_AMOUNT;
-            break;
-        case COMPOUND_REPAY_BORROW:
-            context->next_param = REPAY_AMOUNT;
-            break;
-        case COMPOUND_REPAY_BORROW_ON_BEHALF:
-            context->next_param = BORROWER;
-            break;
-        case COMPOUND_TRANSFER:
-            context->next_param = RECIPIENT;
-            break;
-        case COMPOUND_LIQUIDATE_BORROW:
-            context->next_param = BORROWER;
-            break;
-        case COMPOUND_MANUAL_VOTE:
-            context->next_param = PROPOSAL_ID;
-            break;
-        case COMPOUND_VOTE_DELEGATE:
-            context->next_param = DELEGATEE;
-            break;
-        case CETH_MINT:
-            context->next_param = CETH_AMOUNT;
         default:
-            PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);
+            PRINTF("Missing selectorIndex");
             msg->result = ETH_PLUGIN_RESULT_ERROR;
             return;
     }

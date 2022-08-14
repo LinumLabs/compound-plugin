@@ -12,7 +12,7 @@
 #define PARAMETER_LENGTH     32
 
 typedef enum {
-    COMPOUND_MINT = 0,
+    COMPOUND_MINT,
     COMPOUND_REDEEM,
     COMPOUND_REDEEM_UNDERLYING,
     COMPOUND_BORROW,
@@ -21,8 +21,7 @@ typedef enum {
     COMPOUND_TRANSFER,
     COMPOUND_LIQUIDATE_BORROW,
     COMPOUND_MANUAL_VOTE,
-    COMPOUND_VOTE_DELEGATE,
-    CETH_MINT
+    COMPOUND_VOTE_DELEGATE
 } compoundSelector_t;
 
 typedef enum {
@@ -38,8 +37,7 @@ typedef enum {
     COLLATERAL,
     PROPOSAL_ID,
     SUPPORT,
-    UNEXPECTED_PARAMETER,
-    CETH_AMOUNT
+    UNEXPECTED_PARAMETER
 } parameter;
 typedef struct compoundAssetDefinition_t {
     char ticker[MAX_TICKER_LEN];
