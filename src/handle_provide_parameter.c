@@ -2,12 +2,7 @@
 
 // One param functions handler
 void handle_one_param_function(ethPluginProvideParameter_t *msg, context_t *context) {
-    if (context->go_to_offset) {
-        if (msg->parameterOffset != context->offset + SELECTOR_SIZE) {
-            return;
-        }
-        context->go_to_offset = false;
-    }
+
     switch (context->next_param) {
         case MINT_AMOUNT:  // mintAmount
             copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
@@ -153,15 +148,13 @@ void liquidate_borrow(ethPluginProvideParameter_t *msg, context_t *context) {
 void handle_provide_parameter(void *parameters) {
     ethPluginProvideParameter_t *msg = (ethPluginProvideParameter_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
+    msg->result = ETH_PLUGIN_RESULT_OK;
+    context->offset = 0;  // Reset offset
 
     switch (context->selectorIndex) {
         case COMPOUND_MINT:
         case CETH_MINT:
-            memset(context->amount, 0, sizeof(context->amount));
-            memcpy(context->amount,
-                msg->parameter,
-                sizeof(context->amount));
-            context->next_param = UNEXPECTED_PARAMETER;
+            handle_one_param_function(msg, context);
             break;
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);
