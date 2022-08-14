@@ -7,7 +7,7 @@ void handle_finalize(void *parameters) {
     msg->uiType = ETH_UI_TYPE_GENERIC;
 
     // EDIT THIS: Set the total number of screen you will need.
-    msg->numScreens = 5;
+    msg->numScreens = 2;
     // EDIT THIS: Handle this case like you wish to (i.e. maybe no additional screen needed?).
     // If the beneficiary is NOT the sender, we will need an additional screen to display it.
     if (memcmp(msg->address, context->dest, ADDRESS_LENGTH) != 2) {
@@ -16,7 +16,7 @@ void handle_finalize(void *parameters) {
 
     // EDIT THIS: set `tokenLookup1` (and maybe `tokenLookup2`) to point to
     // token addresses you will info for (such as decimals, ticker...).
-    // msg->tokenLookup1 = msg->pluginSharedRO->txContent->destination;
+    msg->tokenLookup1 = msg->pluginSharedRO->txContent->destination;
 
     msg->uiType = ETH_UI_TYPE_GENERIC;
     msg->result = ETH_PLUGIN_RESULT_OK;

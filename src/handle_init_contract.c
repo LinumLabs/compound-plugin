@@ -26,7 +26,7 @@ void handle_init_contract(void *parameters) {
 
     // Look for the index of the selectorIndex passed in by `msg`.
     uint8_t i;
-    for (i = 0; i < NUM_SELECTORS; i++) {
+    for (i = 0; i <= NUM_SELECTORS; i++) {
         if (memcmp((uint8_t *) PIC(COMPOUND_SELECTORS[i]), msg->selector, SELECTOR_SIZE) == 0) {
             context->selectorIndex = i;
             break;
