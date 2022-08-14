@@ -68,7 +68,7 @@ typedef struct context_t {
     compoundSelector_t selectorIndex;
 } context_t;
 
-extern const uint8_t *const COMPOUND_SELECTORS[NUM_SELECTORS];
+extern const uint32_t COMPOUND_SELECTORS[NUM_SELECTORS];
 
 // Piece of code that will check that the above structure is not bigger than 5 * 32. Do not remove
 // this check.
