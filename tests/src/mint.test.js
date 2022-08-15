@@ -17,7 +17,7 @@ const devices = [
   {
     name: "nanos",
     label: "nano S",
-    steps: 8
+    steps: 9
   }
 ];
 devices.forEach((device) => processTest(device, contractName, testLabel, testLabel, rawTxHex, signedPlugin, "", testNetwork));
