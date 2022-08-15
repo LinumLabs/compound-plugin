@@ -8,8 +8,8 @@
 #define PLUGIN_NAME "Compound"
 
 // TODO: add doc.
-#define NUM_SELECTORS        12
-#define PARAMETER_LENGTH     32
+#define NUM_SELECTORS    12
+#define PARAMETER_LENGTH 32
 
 typedef enum {
     COMPOUND_MINT,

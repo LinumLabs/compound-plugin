@@ -181,10 +181,9 @@ void handle_query_contract_ui(void *parameters) {
     memset(msg->title, 0, msg->titleLength);
     memset(msg->msg, 0, msg->msgLength);
     switch (msg->screenIndex) {
-        case 0:{
+        case 0:
             set_first_param_ui(msg, context);
-            break;
-        } break;
+            break;  
         case 1:
             set_second_param_ui(msg, context);
             break;

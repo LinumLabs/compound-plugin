@@ -36,24 +36,6 @@ void handle_provide_token(void *parameters) {
                     get_underlying_asset_decimals(context->ticker, &context->decimals)
                         ? ETH_PLUGIN_RESULT_OK
                         : ETH_PLUGIN_RESULT_FALLBACK;
-        // Store its ticker.
-        // switch (context->selectorIndex) {
-        //     case COMPOUND_MINT:
-        //     case COMPOUND_REDEEM_UNDERLYING:
-        //     case CETH_MINT:
-        //         msg->result = 
-        //             get_underlying_asset_decimals(context->ticker, &context->decimals)
-        //                 ? ETH_PLUGIN_RESULT_OK
-        //                 : ETH_PLUGIN_RESULT_FALLBACK;
-        //         strlcpy(context->ticker,
-        //             (char *) msg->item1->token.ticker,
-        //             sizeof(context->ticker));
-        //     case COMPOUND_REDEEM:
-        //         context->decimals = msg->item1->token.decimals;
-        //         msg->result = ETH_PLUGIN_RESULT_OK;
-        //         break;
-        
-        // }
         strlcpy(context->ticker, (char *) msg->item1->token.ticker, sizeof(context->ticker));
         context->token_found = true;
     } else {

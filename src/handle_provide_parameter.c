@@ -26,8 +26,8 @@ void handle_one_param_function(ethPluginProvideParameter_t *msg, context_t *cont
             break;
         case DELEGATEE:
             copy_parameter(context->dest,
-                   &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
-                   sizeof(context->dest));
+                           &msg->parameter[PARAMETER_LENGTH - ADDRESS_LENGTH],
+                           sizeof(context->dest));
             context->next_param = UNEXPECTED_PARAMETER;
             break;
         default:
