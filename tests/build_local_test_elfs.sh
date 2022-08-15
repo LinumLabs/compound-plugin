@@ -4,7 +4,7 @@
 NANOS_SDK=$NANOS_SDK
 NANOX_SDK=$NANOX_SDK
 NANOSP_SDK=$NANOSP_SDK
-APP_ETHEREUM=/plugin_dev/app-ethereum
+APP_ETHEREUM=${APP_ETHEREUM:-"/plugin_dev/app-ethereum"}
 
 # create elfs folder if it doesn't exist
 mkdir -p elfs
