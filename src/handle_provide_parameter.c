@@ -160,9 +160,6 @@ void handle_provide_parameter(void *parameters) {
         case COMPOUND_VOTE_DELEGATE:
             handle_one_param_function(msg, context);
             break;
-        case COMPOUND_BORROW:
-            handle_one_param_function(msg, context);
-            break;
         case COMPOUND_REPAY_BORROW:
             handle_one_param_function(msg, context);
             break;
