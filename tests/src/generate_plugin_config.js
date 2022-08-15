@@ -39,7 +39,7 @@ function generate_plugin_config(testNetwork) {
 	}
 
 	// Load the b2c.json file
-	const b2c = require(`../${pluginFolder}/abis/b2c.json`);
+	const b2c = require(`../${pluginFolder}/b2c.json`);
 
 	let res = {};
 
