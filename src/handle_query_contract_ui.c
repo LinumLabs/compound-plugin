@@ -186,11 +186,10 @@ void handle_query_contract_ui(void *parameters) {
             break;
         } break;
         case 1:
-            strlcpy(msg->title, "Contract", msg->titleLength);
-            strlcpy(msg->msg, "Compound ", msg->msgLength);
-            strlcat(msg->msg,
-                    context->ticker + 1,
-                    msg->msgLength);  // remove the 'c' char at beginning of compound ticker
+            set_second_param_ui(msg, context);
+            break;
+        case 2:
+            set_third_param_ui(msg, context);
             break;
         default:
             PRINTF("Received an invalid screenIndex\n");

@@ -153,8 +153,30 @@ void handle_provide_parameter(void *parameters) {
 
     switch (context->selectorIndex) {
         case COMPOUND_MINT:
+        case COMPOUND_REDEEM:
+        case COMPOUND_REDEEM_UNDERLYING:
         case CETH_MINT:
+        case COMPOUND_BORROW:
+        case COMPOUND_VOTE_DELEGATE:
             handle_one_param_function(msg, context);
+            break;
+        case COMPOUND_BORROW:
+            handle_one_param_function(msg, context);
+            break;
+        case COMPOUND_REPAY_BORROW:
+            handle_one_param_function(msg, context);
+            break;
+        case COMPOUND_REPAY_BORROW_ON_BEHALF:
+            repay_borrow_on_behalf(msg, context);
+            break;
+        case COMPOUND_TRANSFER:
+            transfer_tokens(msg, context);
+            break;
+        case COMPOUND_LIQUIDATE_BORROW:
+            liquidate_borrow(msg, context);
+            break;
+        case COMPOUND_MANUAL_VOTE:
+            manual_vote(msg, context);
             break;
         default:
             PRINTF("Missing selectorIndex: %d\n", context->selectorIndex);

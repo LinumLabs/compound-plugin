@@ -16,31 +16,31 @@ void handle_query_contract_id(void *parameters) {
         case CETH_MINT:
             strlcpy(msg->version, "Lend", msg->versionLength);
             break;
-        // case COMPOUND_REDEEM:
-        // case COMPOUND_REDEEM_UNDERLYING:
-        //     strlcpy(msg->version, "Redeem", msg->versionLength);
-        //     break;
-        // case COMPOUND_BORROW:
-        //     strlcpy(msg->version, "Borrow", msg->versionLength);
-        //     break;
-        // case COMPOUND_REPAY_BORROW:
-        //     strlcpy(msg->version, "Repay borrow", msg->versionLength);
-        //     break;
-        // case COMPOUND_REPAY_BORROW_ON_BEHALF:
-        //     strlcpy(msg->version, "Repay borrow on behalf", msg->versionLength);
-        //     break;
-        // case COMPOUND_TRANSFER:
-        //     strlcpy(msg->version, "Transfer", msg->versionLength);
-        //     break;
-        // case COMPOUND_LIQUIDATE_BORROW:
-        //     strlcpy(msg->version, "Liquidate borrow", msg->versionLength);
-        //     break;
-        // case COMPOUND_MANUAL_VOTE:
-        //     strlcpy(msg->version, "Manual vote", msg->versionLength);
-        //     break;
-        // case COMPOUND_VOTE_DELEGATE:
-        //     strlcpy(msg->version, "Vote delegate", msg->versionLength);
-        //     break;
+        case COMPOUND_REDEEM:
+        case COMPOUND_REDEEM_UNDERLYING:
+            strlcpy(msg->version, "Redeem", msg->versionLength);
+            break;
+        case COMPOUND_BORROW:
+            strlcpy(msg->version, "Borrow", msg->versionLength);
+            break;
+        case COMPOUND_REPAY_BORROW:
+            strlcpy(msg->version, "Repay borrow", msg->versionLength);
+            break;
+        case COMPOUND_REPAY_BORROW_ON_BEHALF:
+            strlcpy(msg->version, "Repay borrow on behalf", msg->versionLength);
+            break;
+        case COMPOUND_TRANSFER:
+            strlcpy(msg->version, "Transfer", msg->versionLength);
+            break;
+        case COMPOUND_LIQUIDATE_BORROW:
+            strlcpy(msg->version, "Liquidate borrow", msg->versionLength);
+            break;
+        case COMPOUND_MANUAL_VOTE:
+            strlcpy(msg->version, "Manual vote", msg->versionLength);
+            break;
+        case COMPOUND_VOTE_DELEGATE:
+            strlcpy(msg->version, "Vote delegate", msg->versionLength);
+            break;
         // Keep this
         default:
             PRINTF("Selector index: %d not supported\n", context->selectorIndex);
