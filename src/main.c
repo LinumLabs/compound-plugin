@@ -26,20 +26,20 @@
 
 // List of selectors supported by this plugin.
 // EDIT THIS: Adapt the variable names and change the `0x` values to match your selectors.
-static const uint32_t COMPOUND_APPROVE_SELECTOR = 0x095ea7b3;
-static const uint32_t COMPOUND_REDEEM_UNDERLYING_SELECTOR = 0x852a12e3;
-static const uint32_t COMPOUND_REDEEM_SELECTOR = 0xdb006a75;
-static const uint32_t COMPOUND_MINT_SELECTOR = 0xa0712d68;
+static const uint32_t COMPOUND_APPROVE_SELECTOR = 0x095EA7B3;
+static const uint32_t COMPOUND_REDEEM_UNDERLYING_SELECTOR = 0x852A12E3;
+static const uint32_t COMPOUND_REDEEM_SELECTOR = 0xDB006A75;
+static const uint32_t COMPOUND_MINT_SELECTOR = 0xA0712D68;
 
-static const uint32_t COMPOUND_BORROW_SELECTOR = 0xc5ebeaec;
-static const uint32_t COMPOUND_REPAY_BORROW_SELECTOR = 0x0e752702;
-static const uint32_t COMPOUND_TRANSFER_SELECTOR = 0xa9059cbb;
-static const uint32_t COMPOUND_REPAY_BORROW_ON_BEHALF_SELECTOR = 0x2608f818;
-static const uint32_t COMPOUND_LIQUIDATE_BORROW_SELECTOR = 0xf5e3c462;
-static const uint32_t COMPOUND_VOTE_DELEGATE_SELECTOR = 0x5c19a95c;
+static const uint32_t COMPOUND_BORROW_SELECTOR = 0xC5EBEAEC;
+static const uint32_t COMPOUND_REPAY_BORROW_SELECTOR = 0x0E752702;
+static const uint32_t COMPOUND_TRANSFER_SELECTOR = 0xA9059CBB;
+static const uint32_t COMPOUND_REPAY_BORROW_ON_BEHALF_SELECTOR = 0x2608F818;
+static const uint32_t COMPOUND_LIQUIDATE_BORROW_SELECTOR = 0xF5E3C462;
+static const uint32_t COMPOUND_VOTE_DELEGATE_SELECTOR = 0x5C19A95C;
 // function `deletegateBySig`
-static const uint32_t COMPOUND_MANUAL_VOTE_SELECTOR = 0x15373e3d;
-static const uint32_t CETH_MINT_SELECTOR = 0x1249c58b;
+static const uint32_t COMPOUND_MANUAL_VOTE_SELECTOR = 0x15373E3D;
+static const uint32_t CETH_MINT_SELECTOR = 0x1249C58B;
 
 // Array of all the different boilerplate selectors. Make sure this follows the same order as the
 // enum defined in `boilerplate_plugin.h`
