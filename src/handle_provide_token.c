@@ -32,10 +32,9 @@ void handle_provide_token(void *parameters) {
     context_t *context = (context_t *) msg->pluginContext;
 
     if (msg->item1) {
-        msg->result = 
-                    get_underlying_asset_decimals(context->ticker, &context->decimals)
-                        ? ETH_PLUGIN_RESULT_OK
-                        : ETH_PLUGIN_RESULT_FALLBACK;
+        msg->result = get_underlying_asset_decimals(context->ticker, &context->decimals)
+                          ? ETH_PLUGIN_RESULT_OK
+                          : ETH_PLUGIN_RESULT_FALLBACK;
         strlcpy(context->ticker, (char *) msg->item1->token.ticker, sizeof(context->ticker));
         context->token_found = true;
     } else {

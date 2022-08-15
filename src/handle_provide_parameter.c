@@ -2,7 +2,6 @@
 
 // One param functions handler
 void handle_one_param_function(ethPluginProvideParameter_t *msg, context_t *context) {
-
     switch (context->next_param) {
         case MINT_AMOUNT:  // mintAmount
             copy_parameter(context->amount, msg->parameter, sizeof(context->amount));
@@ -39,12 +38,6 @@ void handle_one_param_function(ethPluginProvideParameter_t *msg, context_t *cont
 
 // Repay borrow on behalf handler
 void repay_borrow_on_behalf(ethPluginProvideParameter_t *msg, context_t *context) {
-    if (context->go_to_offset) {
-        if (msg->parameterOffset != context->offset + SELECTOR_SIZE) {
-            return;
-        }
-        context->go_to_offset = false;
-    }
     switch (context->next_param) {
         case BORROWER:  // mintAmount
             memcpy(context->dest,
@@ -89,12 +82,6 @@ void manual_vote(ethPluginProvideParameter_t *msg, context_t *context) {
 
 // Transfer function handler
 void transfer_tokens(ethPluginProvideParameter_t *msg, context_t *context) {
-    if (context->go_to_offset) {
-        if (msg->parameterOffset != context->offset + SELECTOR_SIZE) {
-            return;
-        }
-        context->go_to_offset = false;
-    }
     switch (context->next_param) {
         case RECIPIENT:  // mintAmount
             memcpy(context->dest,
@@ -115,12 +102,6 @@ void transfer_tokens(ethPluginProvideParameter_t *msg, context_t *context) {
 
 // Liquidate borrow handler
 void liquidate_borrow(ethPluginProvideParameter_t *msg, context_t *context) {
-    if (context->go_to_offset) {
-        if (msg->parameterOffset != context->offset + SELECTOR_SIZE) {
-            return;
-        }
-        context->go_to_offset = false;
-    }
     switch (context->next_param) {
         case BORROWER:  // borrower
             memcpy(context->dest,

@@ -183,7 +183,7 @@ void handle_query_contract_ui(void *parameters) {
     switch (msg->screenIndex) {
         case 0:
             set_first_param_ui(msg, context);
-            break;  
+            break; 
         case 1:
             set_second_param_ui(msg, context);
             break;

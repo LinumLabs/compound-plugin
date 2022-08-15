@@ -45,16 +45,16 @@ static const uint32_t CETH_MINT_SELECTOR = 0x1249c58b;
 // enum defined in `boilerplate_plugin.h`
 // EDIT THIS: Use the names of the array declared above.
 const uint32_t COMPOUND_SELECTORS[NUM_SELECTORS] = {COMPOUND_MINT_SELECTOR,
-                                                   COMPOUND_REDEEM_SELECTOR,
-                                                   COMPOUND_REDEEM_UNDERLYING_SELECTOR,
-                                                   COMPOUND_BORROW_SELECTOR,
-                                                   COMPOUND_REPAY_BORROW_SELECTOR,
-                                                   COMPOUND_REPAY_BORROW_ON_BEHALF_SELECTOR,
-                                                   COMPOUND_TRANSFER_SELECTOR,
-                                                   COMPOUND_LIQUIDATE_BORROW_SELECTOR,
-                                                   COMPOUND_MANUAL_VOTE_SELECTOR,
-                                                   COMPOUND_VOTE_DELEGATE_SELECTOR,
-                                                   CETH_MINT_SELECTOR};
+                                                    COMPOUND_REDEEM_SELECTOR,
+                                                    COMPOUND_REDEEM_UNDERLYING_SELECTOR,
+                                                    COMPOUND_BORROW_SELECTOR,
+                                                    COMPOUND_REPAY_BORROW_SELECTOR,
+                                                    COMPOUND_REPAY_BORROW_ON_BEHALF_SELECTOR,
+                                                    COMPOUND_TRANSFER_SELECTOR,
+                                                    COMPOUND_LIQUIDATE_BORROW_SELECTOR,
+                                                    COMPOUND_MANUAL_VOTE_SELECTOR,
+                                                    COMPOUND_VOTE_DELEGATE_SELECTOR,
+                                                    CETH_MINT_SELECTOR};
 
 // Function to dispatch calls from the ethereum app.
 void dispatch_plugin_calls(int message, void *parameters) {
