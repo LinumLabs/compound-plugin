@@ -65,7 +65,7 @@ typedef struct context_t {
                          // `offset` is reached.
 
     // For both parsing and display.
-    compoundSelector_t selectorIndex;
+    uint8_t selectorIndex;
 } context_t;
 
 extern const uint32_t COMPOUND_SELECTORS[NUM_SELECTORS];

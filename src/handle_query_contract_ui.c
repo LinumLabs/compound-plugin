@@ -43,7 +43,7 @@ void set_address_ui(ethQueryContractUI_t *msg, context_t *context) {
 void set_first_param_ui(ethQueryContractUI_t *msg, context_t *context) {
     switch (context->selectorIndex) {
         case COMPOUND_MINT:
-            strlcpy(msg->title, "Mint.", msg->titleLength);
+            strlcpy(msg->title, "Lend ", msg->titleLength);
             amountToString(context->amount,
                            sizeof(context->amount),
                            context->decimals,
