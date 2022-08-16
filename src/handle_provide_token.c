@@ -16,10 +16,8 @@ const compoundAssetDefinition_t UNDERLYING_ASSET_DECIMALS[NUM_COMPOUND_BINDINGS]
 
 bool get_underlying_asset_decimals(char *compound_ticker, uint8_t *out_decimals) {
     for (size_t i = 0; i < NUM_COMPOUND_BINDINGS; i++) {
-        compoundAssetDefinition_t *binding =
-            (compoundAssetDefinition_t *) PIC(&UNDERLYING_ASSET_DECIMALS[i]);
-        if (strncmp(binding->ticker, compound_ticker, strnlen(binding->ticker, MAX_TICKER_LEN)) ==
-            0) {
+        compoundAssetDefinition_t binding = UNDERLYING_ASSET_DECIMALS[i];
+        if (binding->ticker == compound_ticker) {
             *out_decimals = binding->decimals;
             return true;
         }
@@ -32,7 +30,7 @@ void handle_provide_token(void *parameters) {
     context_t *context = (context_t *) msg->pluginContext;
 
     if (msg->item1) {
-        msg->result = get_underlying_asset_decimals(msg->item1->token.ticker, &context->decimals)
+        msg->result = get_underlying_asset_decimals("cDAI", &context->decimals)
                           ? ETH_PLUGIN_RESULT_OK
                           : ETH_PLUGIN_RESULT_FALLBACK;
         strlcpy(context->ticker, (char *) msg->item1->token.ticker, sizeof(context->ticker));
