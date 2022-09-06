@@ -31,8 +31,8 @@ void handle_provide_token(void *parameters) {
     ethPluginProvideInfo_t *msg = (ethPluginProvideInfo_t *) parameters;
     context_t *context = (context_t *) msg->pluginContext;
     msg->result = get_underlying_asset_decimals("cDAI", &context->decimals)
-                          ? ETH_PLUGIN_RESULT_OK
-                          : ETH_PLUGIN_RESULT_FALLBACK;
+                      ? ETH_PLUGIN_RESULT_OK
+                      : ETH_PLUGIN_RESULT_FALLBACK;
     if (msg->item1) {
         msg->result = get_underlying_asset_decimals(msg->item1->token.ticker, &context->decimals)
                           ? ETH_PLUGIN_RESULT_OK
